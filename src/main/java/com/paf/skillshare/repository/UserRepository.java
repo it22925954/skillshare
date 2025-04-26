@@ -1,11 +1,11 @@
 package com.paf.skillshare.repository;
 
-import java.util.Optional;
-
+import com.paf.skillshare.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.paf.skillshare.model.User;
+import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findByEmail(String email);
 }
+
