@@ -40,4 +40,3 @@ public class LikeController {
         return ResponseEntity.ok(likeService.getLikesForPost(postId));
     }
 }
-
