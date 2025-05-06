@@ -17,10 +17,10 @@ function App() {
     <Router>
       <Routes>
         {!user ? (
-          <Route path="*" element={<LoginPage setUser={setUser} />} />
+          <Route path="/" element={<HomeFeed user={user} />} />
         ) : (
           <>
-            <Route path="/" element={<HomeFeed user={user} />} />
+             
             <Route path="/create" element={<CreatePost user={user} />} />
             <Route path="/profile/:userId" element={<ProfilePage user={user} />} />
           </>
