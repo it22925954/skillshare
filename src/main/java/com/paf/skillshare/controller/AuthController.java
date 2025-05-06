@@ -27,7 +27,7 @@ public class AuthController {
             return ResponseEntity.badRequest().body("Username already taken");
         }
 
-        User saved = userRepository.save(user); // TODO: Hash password in production
+        User saved = userRepository.save(user); // In production, hash password
         return ResponseEntity.ok(toResponse(saved));
     }
 
@@ -35,13 +35,14 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody User loginRequest) {
         Optional<User> optionalUser = userRepository.findByEmail(loginRequest.getEmail())
-            .filter(user -> user.getPassword().equals(loginRequest.getPassword())); // TODO: Compare hashed passwords
+        .filter(user -> user.getPassword().equals(loginRequest.getPassword()));
 
-        if (optionalUser.isPresent()) {
-            return ResponseEntity.ok(toResponse(optionalUser.get()));
-        } else {
-            return ResponseEntity.status(401).body("Invalid credentials");
-        }
+if (optionalUser.isPresent()) {
+    return ResponseEntity.ok(toResponse(optionalUser.get()));
+} else {
+    return ResponseEntity.status(401).body("Invalid credentials");
+}
+
     }
 
     private AuthResponse toResponse(User user) {
