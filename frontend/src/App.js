@@ -1,34 +1,25 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import HomeFeed from './pages/HomeFeed';
-import CreatePost from './pages/CreatePost';
-import ProfilePage from './pages/ProfilePage';
-import LoginPage from './pages/LoginPage';
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    const u = localStorage.getItem('user');
-    if (u) setUser(JSON.parse(u));
-  }, []);
-
   return (
-    <Router>
-      <Routes>
-        {!user ? (
-          <Route path="*" element={<LoginPage setUser={setUser} />} />
-        ) : (
-          <>
-            <Route path="/" element={<HomeFeed user={user} />} />
-            <Route path="/create" element={<CreatePost user={user} />} />
-            <Route path="/profile/:userId" element={<ProfilePage user={user} />} />
-          </>
-        )}
-      </Routes>
-    </Router>
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
   );
 }
 
 export default App;
-
