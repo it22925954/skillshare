@@ -122,7 +122,7 @@ const styles = {
         color: 'white',
         border: 'none',
         padding: '8px 16px',
-        borderRadius: '6px',
+        borderRadius: '10px',
         cursor: 'pointer',
         marginTop: '10px'
     },
