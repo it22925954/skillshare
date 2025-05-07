@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import HomeFeed from './pages/HomeFeed';
 import CreatePost from './pages/CreatePost';
 import ProfilePage from './pages/ProfilePage';
-import LoginPage from './pages/LoginPage';
+
 
 function App() {
   const [user, setUser] = useState(null);
@@ -22,7 +22,7 @@ function App() {
           <>
             <Route path="/" element={<HomeFeed user={user} />} />
             <Route path="/create" element={<CreatePost user={user} />} />
-            <Route path="/profile/:userId" element={<ProfilePage user={user} />} />
+            
           </>
         )}
       </Routes>
