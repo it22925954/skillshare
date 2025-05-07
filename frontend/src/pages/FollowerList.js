@@ -62,7 +62,7 @@ const styles = {
     alignItems: 'center',
     backgroundColor: '#fff7f3',
     padding: '8px',
-    borderRadius: '18px',
+    borderRadius: '20px',
     marginBottom: '15px',
     cursor: 'pointer',
     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.05)',
@@ -77,7 +77,7 @@ const styles = {
     backgroundColor: '#f4f4f4',
   },
   avatar: {
-    width: '55px',
+    width: '60px',
     height: '55px',
     borderRadius: '50%',
     marginRight: '20px',
