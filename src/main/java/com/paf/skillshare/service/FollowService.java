@@ -1,14 +1,15 @@
 package com.paf.skillshare.service;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.paf.skillshare.model.Follow;
 import com.paf.skillshare.model.User;
 import com.paf.skillshare.repository.FollowRepository;
 import com.paf.skillshare.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import java.time.LocalDateTime;
-import java.util.List;
 
 @Service
 public class FollowService {

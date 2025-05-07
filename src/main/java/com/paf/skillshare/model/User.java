@@ -1,20 +1,10 @@
 package com.paf.skillshare.model;
 
-import java.util.List;
-
+import jakarta.persistence.*;
+import lombok.*;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import java.util.List;
 
 @Entity
 @Data
@@ -32,7 +22,7 @@ public class User {
 
     @Column(unique = true, nullable = false)
     private String email;
-
+    private String password;
     private String profilePicture;
     private String bio;
 
@@ -63,9 +53,8 @@ public class User {
     @JsonIgnore
     private List<Follow> followers;
 
-    // @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    // @JsonIgnore
-    // private List<Notification> notifications;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Notification> notifications;
 
 }
-
