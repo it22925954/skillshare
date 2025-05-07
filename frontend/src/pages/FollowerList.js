@@ -83,6 +83,7 @@ const styles = {
     marginRight: '20px',
     objectFit: 'cover',
     border: '3px solid #ff7043',
+  },
   info: {
     display: 'flex',
     flexDirection: 'column',
