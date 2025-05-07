@@ -13,7 +13,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-
 public class Post {
 
     @Id
