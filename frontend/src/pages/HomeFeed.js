@@ -192,7 +192,7 @@ const styles = {
     },
     caption: {
         padding: '4px 16px 0',
-        fontSize: '15px',
+        fontSize: '20px',
         color: '#262626',
     },
     commentsSection: {
