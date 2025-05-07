@@ -1,13 +1,25 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+/*import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from '../api/axios';
 
-function CreatePost() {
+function EditPost() {
+  const { id } = useParams();
   const [caption, setCaption] = useState('');
   const [imageFile, setImageFile] = useState(null);
   const [previewUrl, setPreviewUrl] = useState('');
-  const userId = 1;
   const navigate = useNavigate();
+
+  useEffect(() => {
+    axios.get(`/posts/${id}`)
+      .then((res) => {
+        setCaption(res.data.caption);
+        setPreviewUrl(res.data.imageUrl);
+      })
+      .catch(err => {
+        console.error(err);
+        alert('Failed to load post');
+      });
+  }, [id]);
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -17,46 +29,39 @@ function CreatePost() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!caption || !imageFile) {
+    if (!caption || (!imageFile && !previewUrl)) {
       alert('All fields required');
       return;
     }
-  
-    const fakeUrl = previewUrl;
-    const post = { caption, imageUrl: fakeUrl };
-  
+
+    const updatedPost = {
+      caption,
+      imageUrl: imageFile ? previewUrl : previewUrl,
+    };
+
     try {
-      const res = await axios.post(`/posts/${userId}`, post);
-      const createdPost = res.data;
-      alert('Post created!');
-      navigate(`/posts/${createdPost.id}`); // 👈 navigate to shareable post view
+      await axios.put(`/posts/${id}`, updatedPost);
+      alert('Post updated!');
+      navigate('/');
     } catch (err) {
       console.error(err);
-      alert('Failed to create post');
+      alert('Failed to update post');
     }
   };
-  
 
   return (
     <div style={styles.container}>
-      <h2 style={styles.header}>Create New Post</h2>
+      <h2 style={styles.header}>Edit Post</h2>
       <form onSubmit={handleSubmit} style={styles.form}>
-        <input
-          type="file"
-          accept="image/*"
-          onChange={handleImageChange}
-          style={styles.input}
-        />
-        {previewUrl && (
-          <img src={previewUrl} alt="Preview" style={styles.preview} />
-        )}
+        <input type="file" accept="image/*" onChange={handleImageChange} style={styles.input} />
+        {previewUrl && <img src={previewUrl} alt="Preview" style={styles.preview} />}
         <textarea
-          placeholder="Write a caption..."
+          placeholder="Update your caption..."
           value={caption}
           onChange={(e) => setCaption(e.target.value)}
           style={styles.textarea}
         />
-        <button type="submit" style={styles.button}>Share</button>
+        <button type="submit" style={styles.button}>Update</button>
       </form>
     </div>
   );
@@ -120,4 +125,4 @@ const styles = {
   },
 };
 
-export default CreatePost;
+export default EditPost;*/

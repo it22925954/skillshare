@@ -1,6 +1,7 @@
 package com.paf.skillshare.controller;
 
 import com.paf.skillshare.model.Like;
+import com.paf.skillshare.model.Post;
 import com.paf.skillshare.service.LikeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -32,4 +33,9 @@ public class LikeController {
     public ResponseEntity<List<Like>> getLikes(@PathVariable Long postId) {
         return ResponseEntity.ok(likeService.getLikesForPost(postId));
     }
+    @PutMapping("/{id}")
+public ResponseEntity<Post> updatePost(@PathVariable Long id, @RequestBody Post post) {
+    return ResponseEntity.ok(postService.updatePost(id, post));
+}
+
 }
