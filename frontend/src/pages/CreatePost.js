@@ -11,8 +11,12 @@ function CreatePost() {
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
-    setImageFile(file);
-    setPreviewUrl(URL.createObjectURL(file));
+    if (file && file.type.startsWith('image/')) {
+      setImageFile(file);
+      setPreviewUrl(URL.createObjectURL(file));
+    } else {
+      alert("Please select a valid image.");
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -21,21 +25,23 @@ function CreatePost() {
       alert('All fields required');
       return;
     }
-  
-    const fakeUrl = previewUrl;
-    const post = { caption, imageUrl: fakeUrl };
-  
+
+    const formData = new FormData();
+    formData.append('caption', caption);
+    formData.append('image', imageFile);
+
     try {
-      const res = await axios.post(`/posts/${userId}`, post);
+      const res = await axios.post(`/posts/${userId}`, formData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      });
       const createdPost = res.data;
       alert('Post created!');
-      navigate(`/posts/${createdPost.id}`); // 👈 navigate to shareable post view
+      navigate(`/posts/${createdPost.id}`);
     } catch (err) {
       console.error(err);
       alert('Failed to create post');
     }
   };
-  
 
   return (
     <div style={styles.container}>

@@ -2,8 +2,6 @@ package com.paf.skillshare.dto;
 
 import java.time.LocalDateTime;
 
-import com.paf.skillshare.model.User;
-
 import lombok.Builder;
 import lombok.Data;
 
@@ -15,5 +13,5 @@ public class PostDTO {
     private String imageUrl;
     private LocalDateTime createdAt;
     private int likeCount;
-    private User user;
+    private UserDTO user;
 }
