@@ -45,18 +45,18 @@ function LoginPage({ setUser }) {
 }
 
 const styles = {
-    container: { maxWidth: '400px', margin: '0 auto', padding: '20px', fontFamily: 'Arial' },
-    header: { textAlign: 'center', marginBottom: '20px' },
-    form: { display: 'flex', flexDirection: 'column', gap: '12px' },
-    input: { padding: '10px', borderRadius: '6px', border: '1px solid #ccc' },
-    button: {
-      backgroundColor: '#007bff',
-      color: 'white',
-      border: 'none',
-      padding: '10px',
-      borderRadius: '6px',
-      cursor: 'pointer'
-    }
-  };
+  container: { maxWidth: '400px', margin: '0 auto', padding: '20px', fontFamily: 'Arial' },
+  header: { textAlign: 'center', marginBottom: '20px' },
+  form: { display: 'flex', flexDirection: 'column', gap: '12px' },
+  input: { padding: '10px', borderRadius: '6px', border: '1px solid #ccc' },
+  button: {
+    backgroundColor: '#007bff',
+    color: 'white',
+    border: 'none',
+    padding: '10px',
+    borderRadius: '6px',
+    cursor: 'pointer'
+  }
+};
 
 export default LoginPage;
