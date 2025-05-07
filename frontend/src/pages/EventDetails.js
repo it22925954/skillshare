@@ -14,12 +14,15 @@ const EventDetails = () => {
   }, [eventId]);
 
   const handleDelete = () => {
+    const confirmed = window.confirm('Are you sure you want to delete this event?');
+    if (!confirmed) return;
+  
     fetch(`http://localhost:8080/api/events/${eventId}`, {
       method: 'DELETE'
     })
       .then(() => navigate('/events'))
       .catch(err => console.error(err));
-  };
+  };  
 
   if (!event) return <p>Loading...</p>;
 
