@@ -74,7 +74,7 @@ const styles = {
   cardHover: {
     transform: 'scale(1.05)',
     boxShadow: '0 6px 16px rgba(0, 0, 0, 0.15), 0 4px 8px rgba(0, 0, 0, 0.1)',
-    backgroundColor: '#f4f4f4', // subtle background color change on hover
+    backgroundColor: '#f4f4f4',
   },
   avatar: {
     width: '55px',
@@ -82,8 +82,7 @@ const styles = {
     borderRadius: '50%',
     marginRight: '20px',
     objectFit: 'cover',
-    border: '3px solid #ff7043', // Add border around avatar for better prominence
-  },
+    border: '3px solid #ff7043',
   info: {
     display: 'flex',
     flexDirection: 'column',
