@@ -27,4 +27,3 @@ public class Notification {
     @JoinColumn(name = "user_id")
     private User user; // receiver of the notification
 }
-
